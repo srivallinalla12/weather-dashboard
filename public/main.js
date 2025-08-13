@@ -274,7 +274,7 @@ document.addEventListener("click", (e) => {
   if (e.target !== cityInput) suggestionsBox.innerHTML = "";
 });
 
-// 🔹 Weather Images (same as before)
+// 🔹 Weather Images 
 function getWeatherImage(condition, isDay) {
   const imgPath = "images/";
   condition = condition.toLowerCase();
