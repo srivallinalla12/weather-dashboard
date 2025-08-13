@@ -1,0 +1,329 @@
+/* ===== Global Styles ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #1d2b64, #f8cdda);
+    background-attachment: fixed;
+    color: #fff;
+    padding: 30px;
+  }
+  
+  /* ===== Container Cards ===== */
+  .container,
+  .favorites,
+  .compare {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .favorites {
+    margin: 20px auto;
+    max-width: 600px;
+  }  
+  
+  
+  /* ===== Headers ===== */
+  h1, h2 {
+    text-align: center;
+  }
+  
+  /* ===== Inputs and Buttons ===== */
+  input, button {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin: 5px 5px 10px 0;
+    font-size: 1rem;
+  }
+  
+  input {
+    width: calc(100% - 130px);
+    max-width: 300px;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    background-color: #388e3c;
+  }
+  
+  /* ===== Output Areas ===== */
+  #weather-output, #comparison-output {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    animation: pop 0.6s ease;
+  }
+  
+  /* ===== Favorites List ===== */
+  #favorites-list {
+    list-style: none;
+    padding-left: 0;
+    display: block;
+    margin: 0;
+  }
+  
+  #favorites-list li button {
+    background-color: #2196f3;
+    font-size: 0.9rem;
+  }
+  
+  #favorites-list li button:hover {
+    background-color: #1976d2;
+  }
+  
+  /* ===== Comparison Cards ===== */
+  .compare-card {
+    background: rgba(255,255,255,0.05);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+    text-align: center;
+
+    /* ==== Fade + Slide Card Animation ==== */
+.container, .favorites, .compare {
+    animation: fadeSlideUp 1s ease forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ==== Background Floating Bubbles ==== */
+  body::before {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    animation: floatBg 60s linear infinite;
+  }
+  
+  @keyframes floatBg {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+  }
+  
+  /* ==== Weather Output Animation ==== */
+  #weather-output, #comparison-output {
+    animation: pop 0.6s ease;
+  }
+  
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* ==== Hover Effects ==== */
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+  }
+
+  .clouds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.ibb.co/9qQkXgr/clouds.png');
+    background-repeat: repeat-x;
+    background-size: cover;
+    opacity: 0.15;
+    z-index: -1;
+    animation: moveClouds 120s linear infinite;
+  }
+  
+  @keyframes moveClouds {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 0; }
+  }
+  .favorites li {
+    margin: 8px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .favorites button {
+    padding: 4px 8px;
+    font-size: 14px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .favorites button:hover {
+    opacity: 0.9;
+  }
+  .suggestion-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 2px;
+    border: 1px solid #ccc;
+    background: white;
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute;
+    width: 250px;
+    z-index: 10;
+  }
+  
+  .suggestion-list li {
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+  
+  .suggestion-list li:hover {
+    background-color: #f0f0f0;
+  }
+  .weather-illustration {
+    width: 180px;
+    height: auto;
+    margin: 15px auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    animation: pop 0.6s ease;
+  } 
+    
+  }
+
+  .weather-illustration {
+    max-width: 200px;   /* keeps the image small */
+    height: auto;
+    display: block;
+    margin: 15px auto;  /* centers it under the city name */
+    border-radius: 12px; /* optional rounded corners */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* nice shadow */
+    animation: fadeIn 1s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  @media (max-width: 600px) {
+    .weather-illustration {
+      max-width: 150px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .weather-illustration {
+      max-width: 250px;
+    }
+  }
+
+  /* ===== Side-by-Side Weather Card ===== */
+.weather-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  gap: 20px;
+  flex-wrap: wrap; /* stacks on small screens */
+}
+
+.weather-info {
+  flex: 1;
+  min-width: 220px;
+}
+
+.weather-image {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.weather-illustration {
+  max-width: 200px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  animation: fadeIn 1s ease;
+}
+
+/* Forecast Table Styling */
+.forecast {
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.forecast h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+#forecast-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  text-align: center;
+}
+
+#forecast-table thead {
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+#forecast-table th, 
+#forecast-table td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+#forecast-table tbody tr {
+  transition: background 0.2s ease-in-out;
+}
+
+#forecast-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Emoji column a little bigger */
+#forecast-table td:nth-child(2) {
+  font-size: 1.5rem;
+}
+
+  

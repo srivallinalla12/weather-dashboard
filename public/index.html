@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Real-Time Weather Dashboard</title>
+
+  <!-- Animate.css for entrance animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- ScrollReveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="animate__animated animate__fadeInDown">🌤️ Weather Dashboard</h1>
+  
+    <form id="city-form">
+      <input type="text" id="city-input" placeholder="Enter city name" autocomplete="off" />
+      <ul id="suggestions" class="suggestion-list"></ul>
+      <button type="submit">Search</button>
+      <button type="button" id="location-btn">Use My Location</button>
+    </form>
+  
+    <div id="weather-output" class="weather-box"></div>
+  
+    <!-- 🔹 5-Day Forecast comes BEFORE Favorites -->
+    <section class="forecast">
+      <h2>📅 5-Day Forecast</h2>
+      <table id="forecast-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Weather</th>
+            <th>Temp (°C)</th>
+            <th>Condition</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  
+    <section class="favorites">
+      <h2>⭐ Favorite Cities</h2>
+      <ul id="favorites-list"></ul>
+    </section>
+  
+    <section class="compare">
+      <h2>Compare Weather</h2>
+      <form id="compare-form">
+        <input type="text" id="city1" placeholder="City 1" />
+        <input type="text" id="city2" placeholder="City 2" />
+        <button type="submit">Compare</button>
+      </form>
+      <div id="comparison-output" class="compare-output"></div>
+    </section>
+  </div>
+
+  <!-- Your JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>
